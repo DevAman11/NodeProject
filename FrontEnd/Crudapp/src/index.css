@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .MainPage{
+    background: url(https://videos.pexels.com/video-files/9867271/9867271-uhd_2560_1440_24fps.mp4);
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+} */
+
+
+
+.VideoMain{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   .Videkkjo{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+
+.newvideo{
+    width: 100%;
+    height: 100%;
+ 
+}
+
+.MainPage{
+    position: absolute;
+    /* padding: 100px; */
+    background-color: rgba(255, 255, 255, 0.493);
+}
