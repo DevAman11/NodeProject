@@ -7,7 +7,7 @@ function Userdata() {
 <table className="table table-dark backdrop:blur-">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
@@ -21,6 +21,9 @@ function Userdata() {
       <td>Otto</td>
       <td>@mdo</td>
       <td className='btn btn-primary' >Edit</td>
+      <td className='btn btn-danger '>Delete</td>
+      <td className='btn btn-success'>Update</td>
+
 
     </tr>
     <tr>
@@ -28,15 +31,22 @@ function Userdata() {
       <td>Jacob</td>
       <td>Thornton</td>
       <td>@fat</td>
+      <td className='btn btn-primary' >Edit</td>
+      <td className='btn btn-danger '>Delete</td>
       <td className='btn btn-success'>Update</td>
 
+    
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Larry</td>
       <td>the Bird</td>
       <td>@twitter</td>
+      <td className='btn btn-primary' >Edit</td>
       <td className='btn btn-danger '>Delete</td>
+      <td className='btn btn-success'>Update</td>
+
+     
 
     </tr>
   </tbody>

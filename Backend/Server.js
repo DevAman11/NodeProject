@@ -38,12 +38,12 @@ App.get('/Savedata',(req,res)=>{
 
 App.patch('/Updatedata',(req,res)=>{
     const id=req.params.id
-    const Deletedata = schema.updateOne(
+    const Updatedata = schema.updateOne(
      {id:id},
      {$set:req.body}
     )
     try{
-     res.send({Data:updatedata,msg:"Data Update Successfully"})
+     res.send({Data:Updatedata,msg:"Data Update Successfully"})
     } catch (error) {
         console.log(error);
     }
