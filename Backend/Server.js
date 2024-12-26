@@ -1,11 +1,13 @@
 const express = require("express")
+const cors = require('cors')
 const App = express()
 const env = require("dotenv")
-const schema = require("./Backend/Controllers/Models/schema")
+const schema = require("./Models/schema")
 const mongoose= require("mongoose")
 
 
 env.config()
+App.use(cors())
 App.use(express.json())
 
 main().catch(err => console.log(err));
@@ -16,7 +18,15 @@ async function main() {
   
 }
 
-App.get('/Savedata',(req,res)=>{
+App.get('/user',async (req,res)=>{
+    try {
+     const Data= await schema.find({})
+ 
+     res.send({Data,msg:"Data Saved Successfully"})
+    } catch (error) {
+        console.log(error);
+    }
+}).post('/user',(req,res)=>{
     try {
      const Data= new schema(req.body)
      const savedata = Data.save()
@@ -24,19 +34,7 @@ App.get('/Savedata',(req,res)=>{
     } catch (error) {
         console.log(error);
     }
-})
-
-// App.post('/Uploadata',(req,res)=>{
-//     try {
-//      const Data= new schema(req.body)
-//      const savedata = Data.save()
-//      res.send({Data:savedata,msg:"Data Saved Successfully"})
-//     } catch (error) {
-//         console.log(error);
-//     }
-// })
-
-App.patch('/Updatedata',(req,res)=>{
+}).patch('/user/:id',(req,res)=>{
     const id=req.params.id
     const Updatedata = schema.updateOne(
      {id:id},
@@ -47,10 +45,7 @@ App.patch('/Updatedata',(req,res)=>{
     } catch (error) {
         console.log(error);
     }
-})
-
-
-App.delete('/Savedata',(req,res)=>{
+}).delete('/user/:id',(req,res)=>{
     const id=req.params.id
     const Deletedata = schema.deleteOne(
      {id:id})

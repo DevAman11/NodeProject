@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 
 function Userdata() {
+const [Data, setData] = useState([])
+
+useEffect( async ()=>{
+  await fetch("http://localhost:7000/user")
+  .then(res=>res.json())
+  .then(json=>{setData(json)
+    console.log(json);
+    
+  })
+  .catch( json=>console.log(json)
+  )
+
+
+},[])
+
+
   return (
    <>
+
 
 <table className="table table-dark backdrop:blur-">
   <thead>
