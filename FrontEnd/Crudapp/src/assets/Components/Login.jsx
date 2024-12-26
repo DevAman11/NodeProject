@@ -4,7 +4,7 @@ function Login() {
   return (
     <>
  
-<div className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
+<div className="LoginDiv bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
   <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
     <h2 className=" mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Login To Your Account</h2>
   </div>
