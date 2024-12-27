@@ -22,7 +22,7 @@ App.get('/user',async (req,res)=>{
     try {
      const Data= await schema.find({})
  
-     res.send({Data,msg:"Data Saved Successfully"})
+     res.json(Data)
     } catch (error) {
         console.log(error);
     }

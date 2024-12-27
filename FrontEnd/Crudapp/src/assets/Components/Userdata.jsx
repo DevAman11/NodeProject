@@ -1,75 +1,61 @@
-import React, { useEffect ,useState} from 'react'
-
+import React, { useEffect, useState } from "react";
+import {Link} from 'react-router-dom'
 function Userdata() {
-const [Data, setData] = useState([])
+  const [data, setData] = useState([]);
 
-useEffect( async ()=>{
-  await fetch("http://localhost:7000/user")
-  .then(res=>res.json())
-  .then(json=>{setData(json)
-    console.log(json);
-    
-  })
-  .catch( json=>console.log(json)
-  )
-
-
-},[])
-
-
+  const alldata = async () => {
+    await fetch("http://localhost:7000/user")
+      .then((res) => res.json())
+      .then((json) => {
+        setData(json);
+        console.log(json);
+      })
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    alldata();
+  }, []);
   return (
-   <>
-
-
-<table className="table table-dark backdrop:blur-">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td className='btn btn-primary' >Edit</td>
-      <td className='btn btn-danger '>Delete</td>
-      <td className='btn btn-success'>Update</td>
-
-
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td className='btn btn-primary' >Edit</td>
-      <td className='btn btn-danger '>Delete</td>
-      <td className='btn btn-success'>Update</td>
-
-    
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td className='btn btn-primary' >Edit</td>
-      <td className='btn btn-danger '>Delete</td>
-      <td className='btn btn-success'>Update</td>
-
-     
-
-    </tr>
-  </tbody>
-</table>
-   </>
-  )
+    <>
+      <table className="table backdrop:blur-md">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Password</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.length > 0 && data.map((Value) => {
+            const { _id, Name, Email, Phone, Password } = Value;
+            return (
+              <tr key={_id}>
+                <td>{_id}</td>
+                <td>{Name}</td>
+                <td>{Email}</td>
+                <td>{Password}</td>
+                <td>{Phone}</td>
+                <td>
+                  <button className="btn btn-primary">
+                    <Link to="/Edit"> Edit</Link>
+                  </button>
+                  <button className="btn btn-danger ">
+                    <Link to="">Delete</Link>
+                  </button>
+                  <button className="btn btn-success">
+                    <Link to="">Update</Link>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
 }
 
-export default Userdata
+export default Userdata;
