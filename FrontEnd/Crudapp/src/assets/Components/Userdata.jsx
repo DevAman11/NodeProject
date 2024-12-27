@@ -16,8 +16,9 @@ function Userdata() {
     alldata();
   }, []);
   return (
-    <>
-      <table className="table backdrop:blur-md">
+    <> 
+     
+      <table className="table table-dark backdrop:blur-md">
         <thead>
           <tr>
             <th scope="col">Id</th>

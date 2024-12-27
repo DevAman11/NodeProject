@@ -4,8 +4,8 @@ function Edit() {
   return (
    <>
       {
-        alert(
-            <div className="MainPage flex min-h-fit flex-col justify-center px-4.5 py-6 lg:px-6">
+     
+            <div className=" bg-black flex min-h-fit flex-col justify-center px-4.5 py-6 lg:px-6">
 
 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
   {/* <img className="mx-auto h-10 w-auto" src="" alt="" /> */}
@@ -50,7 +50,7 @@ function Edit() {
     </div>
 
     <div>
-      <button type="submit" className="bg-opacity-10 bg-gradient-to-r from-purple-400 md:from-yellow-500 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign Up</button>
+      <button type="submit" className="bg-gradient-to-r to-teal-400 from-blue-500 hover:from-pink-500 hover:to-orange-500 ... flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign Up</button>
     </div>
   </form>
 
@@ -59,7 +59,7 @@ function Edit() {
   </p>
 </div>
 </div>
-        )
+
       }
    </>
   )
