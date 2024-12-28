@@ -2,7 +2,16 @@ import React from 'react'
 
 function Home() {
   return (
-    <div>HomePage</div>
+     <>
+
+     <section>
+      <div className='HomeMain'>
+        <div className='HomeParent'>
+           <h1> Aman's Crud App</h1>
+        </div>
+      </div>
+      </section>
+     </>
   )
 }
 
