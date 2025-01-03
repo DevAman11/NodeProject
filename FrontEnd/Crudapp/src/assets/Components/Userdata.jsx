@@ -43,11 +43,8 @@ function Userdata() {
                   <button className="btn btn-primary">
                     <Link to="/Edit"> Edit</Link>
                   </button>
-                  <button className="btn btn-danger ">
-                    <Link to="">Delete</Link>
-                  </button>
-                  <button className="btn btn-success">
-                    <Link to="">Update</Link>
+                  <button className="btn btn-danger">
+                    <Link to="/Delete">Delete</Link>
                   </button>
                 </td>
               </tr>
