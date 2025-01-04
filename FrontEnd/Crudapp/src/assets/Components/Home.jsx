@@ -3,11 +3,11 @@ import React from 'react'
 function Home() {
   return (
      <>
-  <body>
+  
      <section>
       <div className='HomeMain'>
        
-        <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" class="rotate">
+        <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" className="rotate">
     <circle cx="200" cy="200" r="100" fill="none" stroke="red" />
     <text font-size="20" fill="blue">
       <textPath href="#circlePath" startOffset="0%">
@@ -21,7 +21,7 @@ function Home() {
         </div>
 
       </section>
-      </body>
+     
      </>
   )
 }
