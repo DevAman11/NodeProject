@@ -15,7 +15,7 @@ function Signup(){
   const HandleData = (e) =>{
     setForm({
       ...Form,
-      [e.target.Name]:e.target.value
+      [e.target.name]:e.target.value
     })
   }
 
@@ -27,7 +27,7 @@ function Signup(){
         headers:{
           'Content-Type':'application/json',
         },
-        body: JSON.stringify(form),
+        body:JSON.stringify(Form),
         })
         if (!response.ok){
           const errorData = await response.json()
@@ -68,7 +68,7 @@ function Signup(){
               <div>
                 <label for="Name" className="block text-sm/6 font-medium text-zinc-50">Name</label>
                 <div className="mt-2">
-                  <input type="text" Name="name" id="Name" onChange={HandleData} value={name} required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input type="text" Name="Name" id="Name" onChange={HandleData} value={Form.Name} required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
               </div>
 
@@ -76,7 +76,7 @@ function Signup(){
               <div>
                 <label for="email" className="block text-sm/6 font-medium text-zinc-50">Email address</label>
                 <div className="mt-2">
-                  <input type="email" Name="email" id="email"  onChange={HandleData}  value={email}  required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input type="email" Name="Email" id="Email"  onChange={HandleData}  value={Form.Email} required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
               </div>
 
@@ -88,14 +88,14 @@ function Signup(){
 
                 </div>
                 <div className="mt-2">
-                  <input type="password" Name="Password"  onChange={HandleData}  value={password}  id="password" autocomplete="current-password" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input type="password" Name="Password"  onChange={HandleData}  value={Form.Password} id="password" autocomplete="current-password" required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
                 </div>
               </div>
 
               <div>
                 <label for="Phone" className="block text-sm/6 font-medium text-zinc-50">Phone Number</label>
                 <div className="mt-6">
-                  <input type="number" Name="Phone" id="Phone"  onChange={HandleData}  value={phone}  required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                  <input type="number" Name="Phone" id="Phone"  onChange={HandleData} value={Form.Phone}  required className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
                 </div>
               </div>
 

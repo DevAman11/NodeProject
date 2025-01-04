@@ -20,7 +20,8 @@ async function main() {
 
 App.get('/user/:id',async(req,res)=>{
     try {
-    const EditData = await schema.findOne({})
+    const id=req.params.id
+    const EditData = await schema.findOne({_id:id})
     res.send({EditData,msg:"Single Data Collected Successfully"})
     } catch (error) {
         console.log(error);

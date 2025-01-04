@@ -41,10 +41,10 @@ function Userdata() {
                 <td>{Phone}</td>
                 <td>
                   <button className="btn btn-primary">
-                    <Link to="/Edit"> Edit</Link>
+                    <Link to={`/Edit/${_id}`}> Edit</Link>
                   </button>
                   <button className="btn btn-danger">
-                    <Link to="/Delete">Delete</Link>
+                    <Link to={`/Delete/${_id}`}>Delete</Link>
                   </button>
                 </td>
               </tr>
