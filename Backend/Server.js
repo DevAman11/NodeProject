@@ -18,10 +18,17 @@ async function main() {
   
 }
 
-App.get('/user',async (req,res)=>{
+App.get('/user/:id',async(req,res)=>{
+    try {
+    const EditData = await schema.findOne({})
+    res.send({EditData,msg:"Single Data Collected Successfully"})
+    } catch (error) {
+        console.log(error);
+        
+    }
+}).get('/user',async (req,res)=>{
     try {
      const Data= await schema.find({})
- 
      res.json(Data)
     } catch (error) {
         console.log(error);

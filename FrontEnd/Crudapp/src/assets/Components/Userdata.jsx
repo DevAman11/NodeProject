@@ -17,7 +17,7 @@ function Userdata() {
   }, []);
   return (
     <> 
-     
+     <form>
       <table className="table table-dark backdrop:blur-md">
         <thead>
           <tr>
@@ -52,6 +52,7 @@ function Userdata() {
           })}
         </tbody>
       </table>
+      </form>
     </>
   );
 }
