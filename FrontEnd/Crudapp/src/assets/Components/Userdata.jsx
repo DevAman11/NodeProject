@@ -25,14 +25,14 @@ function Userdata() {
         },
       });
       
-      if (response.ok) {
-        console.log('User deleted successfully');
-        // Optionally, redirect or update the UI after deletion
-      } else {
-        console.log('Failed to delete user');
-      }
+      // if (response.ok) {
+      //   console.log('User deleted successfully');
+       
+      // } else {
+      //   console.log('Failed to delete user');
+      // }
     } catch (error) {
-      console.log(error);
+      console.log('Error deleting user:',error);
     }
   };
 

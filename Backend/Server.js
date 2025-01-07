@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const env = require("dotenv");
 const schema = require("./Models/schema");
 
+
 env.config();
 const app = express();
 
@@ -22,6 +23,20 @@ async function main() {
 
 main();
 
+
+app.post('/Login', async (req, res) => {
+  try {
+   console.log(req.body)
+   const{Email,Password}=req.body
+    const LoginData = await schema.findOne({Email:Email});
+    console.log(LoginData)
+    if (!LoginData) return res.status(404).json({ msg: "User not found" });
+    res.json({ LoginData, msg: "Login Data Collected Successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+})
 app.get('/user/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -75,7 +90,6 @@ app.get('/user/:id', async (req, res) => {
     res.status(500).json({ msg: "Server error" });
   }
 });
-
 // Start Server
 app.listen(7000, () => {
   console.log("Server Running on port 7000");
