@@ -1,69 +1,82 @@
-const express = require("express")
-const cors = require('cors')
-const App = express()
-const env = require("dotenv")
-const schema = require("./Models/schema")
-const mongoose= require("mongoose")
+const express = require("express");
+const cors = require("cors");
+const mongoose = require("mongoose");
+const env = require("dotenv");
+const schema = require("./Models/schema");
 
+env.config();
+const app = express();
 
-env.config()
-App.use(cors())
-App.use(express.json())
+app.use(cors());
+app.use(express.json());
 
-main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.MongoDb)
-  console.log("Server Connected");
-  
+  try {
+    await mongoose.connect(process.env.MongoDb);
+    console.log("Server Connected to Database");
+  } catch (err) {
+    console.error("Database connection failed:", err);
+  }
 }
 
-App.get('/user/:id',async(req,res)=>{
-    try {
-    const id=req.params.id
-    const EditData = await schema.findOne({_id:id})
-    res.send({EditData,msg:"Single Data Collected Successfully"})
-    } catch (error) {
-        console.log(error);
-        
-    }
-}).get('/user',async (req,res)=>{
-    try {
-     const Data= await schema.find({})
-     res.json(Data)
-    } catch (error) {
-        console.log(error);
-    }
-}).post('/user',(req,res)=>{
-    try {
-     const Data= new schema(req.body)
-     const savedata = Data.save()
-     res.send({Data:savedata,msg:"Data Saved Successfully"})
-    } catch (error) {
-        console.log(error);
-    }
-}).patch('/user/:id',(req,res)=>{
-    const id=req.params.id
-    const Updatedata = schema.updateOne(
-     {id:id},
-     {$set:req.body}
-    )
-    try{
-     res.send({Data:Updatedata,msg:"Data Update Successfully"})
-    } catch (error) {
-        console.log(error);
-    }
-}).delete('/user/:id',(req,res)=>{
-    const id=req.params.id
-    const Deletedata = schema.deleteOne(
-     {id:id})
-    try {
-     res.send({Data:Deletedata,msg:"Data Delete Successfully"})
-    } catch (error) {
-        console.log(error);
-    }
-})
+main();
 
-App.listen(7000,()=>{
-    console.log("Server Running");
-})
+app.get('/user/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const EditData = await schema.findOne({ _id: id });
+    if (!EditData) return res.status(404).json({ msg: "User not found" });
+    res.json({ EditData, msg: "Single Data Collected Successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+}).get('/user', async (req, res) => {
+  try {
+    const Data = await schema.find({});
+    res.json(Data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+}).post('/user', async (req, res) => {
+  try {
+    const Data = new schema(req.body);
+    const savedData = await Data.save();
+    res.status(201).json({ savedData, msg: "Data Saved Successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+}).patch('/user/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedData = await schema.findOneAndUpdate(
+      { _id: id },
+      { $set: req.body },
+      { new: true } 
+    );
+    if (!updatedData) return res.status(404).json({ msg: "User not found" });
+    res.json({ updatedData, msg: "Data Updated Successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+}).delete('/user/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedData = await schema.deleteOne({ _id: id });
+    if (deletedData.deletedCount === 0)
+      return res.status(404).json({ msg: "User not found" });
+    res.json({ msg: "Data Deleted Successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: "Server error" });
+  }
+});
+
+// Start Server
+app.listen(7000, () => {
+  console.log("Server Running on port 7000");
+});

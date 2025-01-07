@@ -11,8 +11,7 @@ function Edit() {
   });
 
   const HandleData = (e) => {
-    setForm({
-      ...Form,
+    setForm({ ...Form,
       [e.target.name]: e.target.value
     });
   };
@@ -20,12 +19,12 @@ function Edit() {
   const SubmitData = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:7000/user/${id}`, {
+      const response = await fetch(`http://localhost:7000/user/${id}`,{
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(Form),
+        body:JSON.stringify(Form),
       });
       if (!response.ok) {
         const errorData = await response.json();
