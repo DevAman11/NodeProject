@@ -1,30 +1,15 @@
-import React from 'react'
+import React from "react";
 
 function Home() {
   return (
-     <>
-  
-     <section>
-      <div className='HomeMain'>
-       
-        <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" className="rotate">
-    <circle cx="200" cy="200" r="100" fill="none" stroke="red" />
-    <text font-size="20" fill="blue">
-      <textPath href="#circlePath" startOffset="0%">
-      Aman's Crud App
-      </textPath>
-    </text>
-    <defs>
-      <path id="circlePath" d="M 200,200 m -100,0 a 100,100 0 1,1 200,0 a 100,100 0 1,1 -200,0" />
-    </defs>
-  </svg>
+    <>
+      <section>
+        <div className="HomeMain">
+          <h1>Aman's Crud App </h1>
         </div>
-
       </section>
-     
-     </>
-  )
+    </>
+  );
 }
 
-
-export default Home
+export default Home;
