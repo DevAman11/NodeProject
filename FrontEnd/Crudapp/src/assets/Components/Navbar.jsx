@@ -30,8 +30,7 @@ function Navbar() {
             <Link to="/Signup" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Signup</Link>
             <Link to="/Login" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Login</Link>
             <Link to="/Userdata" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Userdata</Link>
-            <Link to="/Logindata" className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Logindata</Link>
-            
+           
           </div>
         </div>
       </div>
@@ -62,7 +61,7 @@ function Navbar() {
       <Link to="/Signup" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Signup</Link>
       <Link to="/Login" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Login</Link>
       <Link to="/Userdata" className="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Userdata</Link>
-      <Link to="/Logindata" className="block rounded-md px-3 py-2 text-base font-medium  text-gray-300 hover:bg-gray-700 hover:text-white">Logindata</Link>
+     
     </div>
   </div>
 </nav>
