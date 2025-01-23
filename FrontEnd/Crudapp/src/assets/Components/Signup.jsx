@@ -30,8 +30,8 @@ function Signup(){
         body:JSON.stringify(Form),
         })
         if (!response.ok){
-          const errorData = await response.json()
-          alert(`Error:${errorData.message}`)
+          const error = await response.json()
+          alert(`Error:${error.message}`)
         }else{
           const data = await response.json()
           setForm({
