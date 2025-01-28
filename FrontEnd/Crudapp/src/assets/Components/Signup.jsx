@@ -8,7 +8,7 @@ function Signup(){
   const[Form,setForm]=useState({
     Name:'',
     Email:'', 
-    Phone:'',
+    Phone:'', 
     Password:''
   })
 

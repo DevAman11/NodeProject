@@ -12,7 +12,7 @@ function Home() {
     <span className="text-4xl mx-4">Aman's Crud App </span>
     <span className="text-4xl mx-4">Aman's Crud App </span>
   </div>
-  <img src={BgImg} alt="" className="BgImg"/>
+
 
   <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
     <span className="text-4xl mx-4">Aman's Crud App </span>
