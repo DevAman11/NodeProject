@@ -81,6 +81,7 @@ function Edit() {
                 </label>
                 <div className="mt-2">
                   <input
+                  
                     type="text"
                     name="Name"
                     id="Name"
