@@ -33,9 +33,9 @@ app.post("/Login", async (req, res) => {
     console.error(error);
     res.status(500).json({ msg: "Server error" });
   }
-});
-app
-  .get("/user/:id", async (req, res) => {
+})
+
+app.get("/user/:id", async (req, res) => {
     try {
       const { id } = req.params;
       const EditData = await schema.findOne({ _id: id });
