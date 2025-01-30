@@ -50,6 +50,7 @@ function Signup(){
 
   return (
     <>
+    <h1> hello sign up page</h1>
       <div className='VideoMain'>
         <div className='VideoDiv'>
           <video className="NewVideo" autoPlay loop muted>
