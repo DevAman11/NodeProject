@@ -37,7 +37,7 @@ function Edit() {
           Phone: '',
           Password: ''
         });
-        alert(`Edit Successfully: ${JSON.stringify(data)}`);
+        alert(`Edit Successfully : ${JSON.stringify(data)}`);
       }
     } catch (error) {
       console.log(error);
@@ -131,8 +131,7 @@ function Edit() {
 
               <button
                 type="submit"
-                className="bg-gradient-to-r to-teal-400 from-blue-500 hover:from-pink-500 ..."
-              >
+                className="bg-gradient-to-r to-teal-400 from-blue-500 hover:from-pink-500 ...">
                 Update Data
               </button>
             </form>
