@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 function Login() {
   const [Email, setEmail] = useState("");
@@ -17,25 +17,22 @@ function Login() {
     };
 
     try {
-      // Using POST method instead of GET
       const response = await fetch("http://localhost:7000/Login", {
-        method: "POST", // Correct HTTP method for sending data
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(LogData), // Send the login data in the body
+        body: JSON.stringify(LogData), 
       });
 
       const result = await response.json();
-
-      // Check if the response is OK (successful)
       if (response.ok) {
         setMessage("Login Successful");
         setStore(result);
-        console.log(result); // Store the response (likely the user data or token)
+        console.log(result); 
         navigate(`/Logindata/${result.LoginData._id}`);
       } else {
-        setMessage(result.Message); // If not successful, show the error message
+        setMessage(result.Message);
       }
     } catch (error) {
       setMessage("Something Went Wrong, Please Try Again Later");
